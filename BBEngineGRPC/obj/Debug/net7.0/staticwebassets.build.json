@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "PIAeBmuJEmqaE13VKUFDAkCEEmPJBuVZ2keZ+4qPH0I=",
+  "Source": "BBEngineGRPC",
+  "BasePath": "_content/BBEngineGRPC",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

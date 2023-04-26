@@ -1,0 +1,89 @@
+syntax = "proto3";
+
+option csharp_namespace = "BBEngineGRPC.Protos";
+
+package product;
+
+import "google/api/http.proto";
+import "google/api/annotations.proto";
+
+service Product {
+	rpc FindProduct (ProductRequest) returns (ProductListItem){
+        option (google.api.http) = {
+            get: "/v1/products/Find",
+        };
+    }
+
+    rpc GetAllProduct (ProductRequestEmpty) returns (ProductListItem){
+        option (google.api.http) = {
+            get: "/v1/products/GetAll",
+        };
+    }
+
+    rpc GetProductById (ProductRequest) returns (ProductListItem){
+        option (google.api.http) = {
+            get: "/v1/products/GetById",
+        };
+    }
+
+    rpc CreateProduct (CreateProductRequest) returns (ResponseMessage){
+        option (google.api.http) = {
+            get: "/v1/products/Create",
+        };
+    }
+
+    rpc UpdateProduct (UpdateProductRequest) returns (ResponseMessage){
+        option (google.api.http) = {
+            get: "/v1/products/Update",
+        };
+    }
+
+    rpc DeleteProduct (DeleteProductRequest) returns (ResponseMessage){
+        option (google.api.http) = {
+            get: "/v1/products/Delete",
+        };
+    }    
+}
+
+message ProductList {
+    int32 id = 1;
+    string Name = 2;
+    int32 Stock = 3;
+    string Price = 4;
+    string Description = 5;
+}
+
+message ProductListItem {
+    repeated ProductList items = 1;
+}
+
+message ProductRequest {
+    int32 productId = 1;
+}
+
+message ResponseMessage {
+    string status = 1;
+    string message = 2;
+    int32 code = 3;
+}
+
+message CreateProductRequest {
+    string Name = 2;
+    int32 Stock = 3;
+    string Price = 4;
+    string Description = 5;
+}
+
+message UpdateProductRequest {
+    int32 id = 1;
+    string Name = 2;
+    int32 Stock = 3;
+    string Price = 4;
+    string Description = 5;
+}
+
+message DeleteProductRequest {
+    int32 productId = 1;
+}
+
+message ProductRequestEmpty { }
