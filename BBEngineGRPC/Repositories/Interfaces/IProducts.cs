@@ -5,9 +5,9 @@ namespace BBEngineGRPC.Repositories.Interfaces
     public interface IProducts
     {
         Task<ProductListItem> GetAllProduct(ProductRequestEmpty reqEmpty);
-        Task<Model.Product> GetProductById(int id);
+        Task<ProductList> GetProductById(ProductRequest reqId);
         Task<bool> Create(CreateProductRequest CreateRequest);
         Task<bool> Update(UpdateProductRequest UpdateRequest);
-        Task<bool> Delete(DeleteProductRequest DeleteRequest);
+        Task<bool> Delete(DeleteProductRequest DeleteRequest);        
     }
 }

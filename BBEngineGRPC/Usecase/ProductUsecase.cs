@@ -21,9 +21,17 @@ namespace BBEngineGRPC.Usecase
             return await _productRepo.Products().GetAllProduct(reqEmpty);
         }
 
-        Task<ProductListItem> IProductUsecase.GetById(ProductRequest reqId)
+        async Task<ProductList> IProductUsecase.GetById(ProductRequest reqId)
         {
-            throw new NotImplementedException();
+            var data = await _productRepo.Products().GetProductById(reqId);
+            return new ProductList
+            {
+                Id = data.Id,
+                Name = data.Name,
+                Stock = data.Stock,
+                Price = data.Price,
+                Description = data.Description
+            };
         }
 
         async Task<ResponseMessage> IProductUsecase.Create(CreateProductRequest createRequest)
@@ -34,7 +42,7 @@ namespace BBEngineGRPC.Usecase
                 return new ResponseMessage
                 {
                     Status = "Ok",
-                    Message = "Data Successfully created",
+                    Message = "Data created successfully",
                     Code = 200
                 };
             }
@@ -42,14 +50,36 @@ namespace BBEngineGRPC.Usecase
             throw new RpcException(new Status(StatusCode.Internal, "Failed to craete new product"));
         }
 
-        Task<ResponseMessage> IProductUsecase.Delete(DeleteProductRequest deleteRequest)
+        async Task<ResponseMessage> IProductUsecase.Update(UpdateProductRequest updateRequest)
         {
-            throw new NotImplementedException();
+            var result = await _productRepo.Products().Update(updateRequest);
+            if (result)
+            {
+                return new ResponseMessage
+                {
+                    Status = "Ok",
+                    Message = "Data updated successfully",
+                    Code = 200
+                };
+            }
+
+            throw new RpcException(new Status(StatusCode.Internal, "Failed to update data"));
         }
 
-        Task<ResponseMessage> IProductUsecase.Update(UpdateProductRequest updateRequest)
+        async Task<ResponseMessage> IProductUsecase.Delete(DeleteProductRequest deleteRequest)
         {
-            throw new NotImplementedException();
-        }
+            var result = await _productRepo.Products().Delete(deleteRequest);
+            if (result)
+            {
+                return new ResponseMessage
+                {
+                    Status = "Ok",
+                    Message = "Data deleted successfully",
+                    Code = 200
+                };
+            }
+
+            throw new RpcException(new Status(StatusCode.Internal, "Failed to delete data"));
+        }        
     }
 }

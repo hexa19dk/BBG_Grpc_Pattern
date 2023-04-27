@@ -20,9 +20,24 @@ namespace BBEngineGRPC.Services
             return await _productUsecase.GetAll(request);
         }
 
+        public override async Task<ProductList> GetProductById(ProductRequest reqId, ServerCallContext context)
+        {
+            return await _productUsecase.GetById(reqId);
+        }
+
         public override async Task<ResponseMessage> CreateProduct(CreateProductRequest request, ServerCallContext context)
         {
             return await _productUsecase.Create(request);
+        }
+
+        public override async Task<ResponseMessage> UpdateProduct(UpdateProductRequest request, ServerCallContext context)
+        {
+            return await _productUsecase.Update(request);
+        }
+
+        public override async Task<ResponseMessage> DeleteProduct(DeleteProductRequest request, ServerCallContext context)
+        {
+            return await _productUsecase.Delete(request);
         }
     }
 }

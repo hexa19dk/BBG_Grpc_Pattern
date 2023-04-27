@@ -52,6 +52,8 @@ namespace BBEngineGRPC.Protos {
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::BBEngineGRPC.Protos.ProductRequestEmpty> __Marshaller_product_ProductRequestEmpty = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::BBEngineGRPC.Protos.ProductRequestEmpty.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::BBEngineGRPC.Protos.ProductList> __Marshaller_product_ProductList = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::BBEngineGRPC.Protos.ProductList.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::BBEngineGRPC.Protos.CreateProductRequest> __Marshaller_product_CreateProductRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::BBEngineGRPC.Protos.CreateProductRequest.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::BBEngineGRPC.Protos.ResponseMessage> __Marshaller_product_ResponseMessage = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::BBEngineGRPC.Protos.ResponseMessage.Parser));
@@ -77,12 +79,12 @@ namespace BBEngineGRPC.Protos {
         __Marshaller_product_ProductListItem);
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::BBEngineGRPC.Protos.ProductRequest, global::BBEngineGRPC.Protos.ProductListItem> __Method_GetProductById = new grpc::Method<global::BBEngineGRPC.Protos.ProductRequest, global::BBEngineGRPC.Protos.ProductListItem>(
+    static readonly grpc::Method<global::BBEngineGRPC.Protos.ProductRequest, global::BBEngineGRPC.Protos.ProductList> __Method_GetProductById = new grpc::Method<global::BBEngineGRPC.Protos.ProductRequest, global::BBEngineGRPC.Protos.ProductList>(
         grpc::MethodType.Unary,
         __ServiceName,
         "GetProductById",
         __Marshaller_product_ProductRequest,
-        __Marshaller_product_ProductListItem);
+        __Marshaller_product_ProductList);
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::BBEngineGRPC.Protos.CreateProductRequest, global::BBEngineGRPC.Protos.ResponseMessage> __Method_CreateProduct = new grpc::Method<global::BBEngineGRPC.Protos.CreateProductRequest, global::BBEngineGRPC.Protos.ResponseMessage>(
@@ -131,7 +133,7 @@ namespace BBEngineGRPC.Protos {
       }
 
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task<global::BBEngineGRPC.Protos.ProductListItem> GetProductById(global::BBEngineGRPC.Protos.ProductRequest request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::BBEngineGRPC.Protos.ProductList> GetProductById(global::BBEngineGRPC.Protos.ProductRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -179,7 +181,7 @@ namespace BBEngineGRPC.Protos {
     {
       serviceBinder.AddMethod(__Method_FindProduct, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::BBEngineGRPC.Protos.ProductRequest, global::BBEngineGRPC.Protos.ProductListItem>(serviceImpl.FindProduct));
       serviceBinder.AddMethod(__Method_GetAllProduct, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::BBEngineGRPC.Protos.ProductRequestEmpty, global::BBEngineGRPC.Protos.ProductListItem>(serviceImpl.GetAllProduct));
-      serviceBinder.AddMethod(__Method_GetProductById, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::BBEngineGRPC.Protos.ProductRequest, global::BBEngineGRPC.Protos.ProductListItem>(serviceImpl.GetProductById));
+      serviceBinder.AddMethod(__Method_GetProductById, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::BBEngineGRPC.Protos.ProductRequest, global::BBEngineGRPC.Protos.ProductList>(serviceImpl.GetProductById));
       serviceBinder.AddMethod(__Method_CreateProduct, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::BBEngineGRPC.Protos.CreateProductRequest, global::BBEngineGRPC.Protos.ResponseMessage>(serviceImpl.CreateProduct));
       serviceBinder.AddMethod(__Method_UpdateProduct, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::BBEngineGRPC.Protos.UpdateProductRequest, global::BBEngineGRPC.Protos.ResponseMessage>(serviceImpl.UpdateProduct));
       serviceBinder.AddMethod(__Method_DeleteProduct, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::BBEngineGRPC.Protos.DeleteProductRequest, global::BBEngineGRPC.Protos.ResponseMessage>(serviceImpl.DeleteProduct));
